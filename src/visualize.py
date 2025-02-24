@@ -33,7 +33,7 @@ for k,v in items:
 #matplotlib
 
 topten = items[:10]
-#print(topten)
+print(topten)
 categories, values = zip(*topten)
 
 plt.figure(figsize=(6, 4))
