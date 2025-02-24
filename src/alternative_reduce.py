@@ -13,7 +13,7 @@ import os
 # command line args
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--key',required=True)
+parser.add_argument('--input_path',required=True)
 parser.add_argument('--percent',action='store_true')
 args = parser.parse_args()
 
@@ -61,15 +61,35 @@ import os
 import json
 from collections import Counter,defaultdict
 
-counts = rDictionaryDate
+
+counts = {}
+lHashtags = []
+
+# open the input hashtags
+with open(args.input_path) as f:
+    for line in f:
+        addline = line.strip()
+        addline = addline[1:]
+        lHashtags.append(addline)
+
+
+for ht in lHashtags:
+    if ht in rDictionaryDate.keys():
+        if len(counts.keys()) == 0:
+            counts = rDictionaryDate[ht]
+        else: 
+            counts = {**counts, **rDictionaryDate[ht]}
+    else:
+        print("Inputted hashtag not found")
+
 
 # normalize the counts by the total values
 if args.percent:
-    for k in counts[args.key]:
-        counts[args.key][k] /= counts['_all'][k]
+    for k in counts:
+        counts[k] /= counts['_all'][k]
 
 # print the count values
-items = sorted(counts[args.key].items(), key=lambda item: item[0])
+items = sorted(counts.items(), key=lambda item: item[0])
 for k,v in items:
     print(k,':',v)
 
@@ -83,10 +103,10 @@ plt.plot(categories, values)
 
 plt.xticks(categories[::30], rotation=45)
 
-plt.ylabel("Number of tweets")
 plt.xlabel("Date")
+plt.ylabel("Number of tweets")
 
-plt.title("Tweets over time for: " + str(args.key))
+plt.title("Tweets over time for inputted hashtags")
 
-plt.savefig("tweetsovertime"+str(args.key), dpi = 300)
+plt.savefig("tweetsovertime"+''.join(map(str, lHashtags)), dpi = 300)
 
