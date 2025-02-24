@@ -34,7 +34,7 @@ for k,v in items:
 
 topten = items[:10]
 #print(topten)
-categories, values = zip(*items)
+categories, values = zip(*topten)
 
 plt.figure(figsize=(6, 4))
 plt.bar(categories, values)
