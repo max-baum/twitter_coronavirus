@@ -6,6 +6,7 @@ startDirLang = "/home/miba2020/twitter_coronavirus/src/langoutput"
 startDirCountry = "/home/miba2020/twitter_coronavirus/src/countryoutput"
 
 langcounter = 0
+langtweets = 0
 rDictionaryLang = {}
 
 for filename in os.listdir(startDirLang):
@@ -19,20 +20,30 @@ for filename in os.listdir(startDirLang):
             
             langcounter += 1
 
-            for item in add_dictionary.keys():
-                if item in rDictionaryLang.keys():
-                    rDictionaryLang[item] += add_dictionary[item]
+            for item in add_dictionary.items():
+                (tup, val) = item
+                langtweets += val
+                tup = eval(tup)
+                ht = tup[0]
+                iden = tup[1]
+                if ht in rDictionaryLang.keys():
+                    checkiden = rDictionaryLang[ht]
+                    if iden in checkiden.keys():
+                        rDictionaryLang[ht][iden] += val 
+                    else:
+                        rDictionaryLang[ht][iden] = val
                 else:
-                    rDictionaryLang[item] = add_dictionary[item]
+                    rDictionaryLang[ht] = {iden: val}
         f2.close()
 
-print(str(langcounter))
-rDictLangFinal = {"hashtags": rDictionaryLang}
+print("Files read: " + str(langcounter))
+print("Tweets read: " + str(langtweets))
 
 with open("langreduce.lang", "w") as fout:
-    fout.write(json.dumps(rDictLangFinal, ensure_ascii = False))
+    fout.write(json.dumps(rDictionaryLang, ensure_ascii = False))
 
 countrycounter = 0
+countrytweets = 0
 rDictionaryCountry = {}
 
 for filename in os.listdir(startDirCountry):
@@ -46,17 +57,26 @@ for filename in os.listdir(startDirCountry):
             
             countrycounter += 1
 
-            for item in add_dictionary.keys():
-                if item in rDictionaryCountry.keys():
-                    rDictionaryCountry[item] += add_dictionary[item]
+            for item in add_dictionary.items():
+                (tup, val) = item
+                countrytweets += val
+                tup = eval(tup)
+                ht = tup[0]
+                iden = tup[1]
+                if ht in rDictionaryCountry.keys():
+                    checkiden = rDictionaryCountry[ht]
+                    if iden in checkiden.keys():
+                        rDictionaryCountry[ht][iden] += val 
+                    else:
+                        rDictionaryCountry[ht][iden] = val
                 else:
-                    rDictionaryCountry[item] = add_dictionary[item]
+                    rDictionaryCountry[ht] = {iden: val}
         f2.close()
 
-print(str(countrycounter))
-
-rDictCountryFinal = {"hashtags": rDictionaryCountry}
+print("Files read: " + str(countrycounter))
+print("Tweets read: " + str(countrytweets))
 
 with open("countryreduce.country", "w") as fout:
-    fout.write(json.dumps(rDictCountryFinal, ensure_ascii = False))
+    fout.write(json.dumps(rDictionaryCountry, ensure_ascii = False))
+
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import matplotlib.pyplot as plt
+import os
 
 # command line args
 import argparse
@@ -39,7 +40,10 @@ categories, values = zip(*topten)
 plt.figure(figsize=(6, 4))
 plt.bar(categories, values)
 
-plt.title("Top Ten Tweets for " + str(args.key))
+_, fileext = os.path.splitext(args.input_path)
+fileext = fileext[1:]
 
-plt.savefig("plotnew"+str(args.key), dpi = 300)
+plt.title("Top Ten Tweets for " + str(args.key) + " by " + str(fileext))
+
+plt.savefig("plotnew"+str(fileext)+str(args.key), dpi = 300)
 
