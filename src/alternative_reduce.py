@@ -13,7 +13,7 @@ import os
 # command line args
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--input_path',required=True)
+parser.add_argument('--input_ht_path',required=True)
 parser.add_argument('--percent',action='store_true')
 args = parser.parse_args()
 
@@ -66,7 +66,7 @@ counts = {}
 lHashtags = []
 
 # open the input hashtags
-with open(args.input_path) as f:
+with open(args.input_ht_path) as f:
     for line in f:
         addline = line.strip()
         addline = addline[1:]
@@ -98,7 +98,7 @@ for k,v in items:
 
 categories, values = zip(*items)
 
-plt.figure(figsize=(6, 4))
+plt.figure(figsize=(6, 5))
 plt.plot(categories, values)
 
 plt.xticks(categories[::30], rotation=45)
