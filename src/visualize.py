@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import matplotlib.pyplot as plt
+
 # command line args
 import argparse
 parser = argparse.ArgumentParser()
@@ -26,3 +28,18 @@ if args.percent:
 items = sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), reverse=True)
 for k,v in items:
     print(k,':',v)
+
+
+#matplotlib
+
+topten = items[:10]
+#print(topten)
+categories, values = zip(*items)
+
+plt.figure(figsize=(6, 4))
+plt.bar(categories, values)
+
+plt.title("Top Ten Tweets for " + str(args.key))
+
+plt.savefig("plot"+str(args.key), dpi = 300)
+
