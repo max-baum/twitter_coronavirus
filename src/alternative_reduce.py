@@ -81,7 +81,7 @@ categories, values = zip(*items)
 plt.figure(figsize=(6, 4))
 plt.plot(categories, values)
 
-plt.xticks(categories[::10], rotation=45)
+plt.xticks(categories[::30], rotation=45)
 
 plt.ylabel("Number of tweets")
 plt.xlabel("Date")
