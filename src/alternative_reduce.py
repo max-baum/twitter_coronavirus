@@ -78,10 +78,12 @@ for ht in lHashtags:
         if len(counts.keys()) == 0:
             counts = rDictionaryDate[ht]
         else: 
-            counts = {**counts, **rDictionaryDate[ht]}
+            for key, value in rDictionaryDate[ht].items():
+                counts[key] = counts.get(key, 0) + value
     else:
         print("Inputted hashtag not found")
 
+print(counts)
 
 # normalize the counts by the total values
 if args.percent:
@@ -98,13 +100,13 @@ for k,v in items:
 
 categories, values = zip(*items)
 
-plt.figure(figsize=(6, 5))
 plt.plot(categories, values)
 
 plt.xticks(categories[::30], rotation=45)
 
 plt.xlabel("Date")
 plt.ylabel("Number of tweets")
+plt.tight_layout()
 
 plt.title("Tweets over time for inputted hashtags")
 
