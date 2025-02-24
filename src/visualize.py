@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
+import requests
 import matplotlib.pyplot as plt
 import os
+
 
 # command line args
 import argparse
