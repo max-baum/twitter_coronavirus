@@ -81,6 +81,8 @@ categories, values = zip(*items)
 plt.figure(figsize=(6, 4))
 plt.plot(categories, values)
 
+plt.xticks(categories[::10])
+
 plt.title("Tweets over time for: " + str(args.key))
 
 plt.savefig("tweetsovertime"+str(args.key), dpi = 300)
