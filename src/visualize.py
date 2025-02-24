@@ -41,5 +41,5 @@ plt.bar(categories, values)
 
 plt.title("Top Ten Tweets for " + str(args.key))
 
-plt.savefig("plot"+str(args.key), dpi = 300)
+plt.savefig("plotnew"+str(args.key), dpi = 300)
 
