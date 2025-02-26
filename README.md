@@ -6,6 +6,8 @@ In this project, I analyzed geotagged tweets in 2020 for the prevelance of the c
 
 **Sample Findings** 
 
+Below, I visualize the prevalence of certain hastags in tweets by country and language according to the analysis I conducted
+
 ![Prevalance of #coronavirus in tweets by country](plotcountrycoronavirus.png)
 
 ![Prevalance of #코로나바이러스 in tweets by country](plotcountry코로나바이러스.png)
