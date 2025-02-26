@@ -48,6 +48,7 @@ fileext = fileext[1:]
 plt.title("Prevelance of selected hashtag by: " + str(fileext))
 
 plt.ylabel("Number of tweets")
+plt.subplots_adjust(left=0.2)
 
-plt.savefig("plot"+str(fileext)+str(args.key), dpi = 300)
+plt.savefig("plot"+str(fileext)+str(args.key), bbox_inches="tight", dpi = 300)
 
