@@ -39,7 +39,7 @@ topten = items[:10]
 print(topten)
 categories, values = zip(*topten)
 
-plt.figure(figsize=(6, 4))
+plt.tight_layout()
 plt.bar(categories, values)
 
 _, fileext = os.path.splitext(args.input_path)
