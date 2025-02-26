@@ -39,8 +39,8 @@ topten = items[:10]
 print(topten)
 categories, values = zip(*topten)
 
-plt.tight_layout()
 plt.bar(categories, values)
+plt.tight_layout()
 
 _, fileext = os.path.splitext(args.input_path)
 fileext = fileext[1:]
