@@ -81,7 +81,7 @@ for ht in lHashtags:
             for key, value in rDictionaryDate[ht].items():
                 counts[key] = counts.get(key, 0) + value
     else:
-        print("Inputted hashtag not found")
+        print("Inputted hashtag not found: " + ht)
 
 print(counts)
 

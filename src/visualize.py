@@ -45,7 +45,7 @@ plt.bar(categories, values)
 _, fileext = os.path.splitext(args.input_path)
 fileext = fileext[1:]
 
-plt.title("Top Ten Tweets for " + str(args.key) + " by " + str(fileext))
+plt.title("Top Ten Tweets for selected hashtag by" + str(fileext))
 
-plt.savefig("plotnew"+str(fileext)+str(args.key), dpi = 300)
+plt.savefig("plot"+str(fileext)+str(args.key), dpi = 300)
 
