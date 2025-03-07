@@ -99,7 +99,8 @@ first_iter_keys = True
 
 for key, val in filtereddict.items():
     dates = dict(sorted(val.items(), key=lambda item: item[0]))
-    plt.plot(dates.keys(), dates.values(), label=key)
+    print(dates)
+    plt.plot(list(dates.keys()), list(dates.values()), label=key)
 
     if first_iter_keys:
         key_labels = list(dates.keys())
