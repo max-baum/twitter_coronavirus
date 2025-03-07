@@ -22,6 +22,7 @@ startDirLang = "/home/miba2020/twitter_coronavirus/src/newmap/lang"
 datecounter = 0
 datetweets = 0
 rDictionaryDate = {}
+l_dates = {}
 
 for filename in os.listdir(startDirLang):
     f = os.path.join(startDirLang, filename)
@@ -32,6 +33,7 @@ for filename in os.listdir(startDirLang):
             
             pattern = r"geoTwitter(.*?)[.]"
             date = re.search(pattern, filename).group(1)
+            l_date[date] = 0
 
             print("Reducing: " + str(f))
             
@@ -74,7 +76,13 @@ with open(args.input_ht_path) as f:
 
 for ht in lHashtags:
     if ht in rDictionaryDate.keys():
-        filtereddict[ht] = rDictionaryDate[ht]
+        add_dict = {}
+        for key, val in l_dates.items();
+            if key in rDictionaryDate[ht].keys():
+                add_dict[key] = rDictionaryDate[ht][key]
+            else:
+                add_dict[key] = 0
+        filtereddict[ht] = add_dict
     else:
         print("Inputted hashtag not found: " + ht)
 
