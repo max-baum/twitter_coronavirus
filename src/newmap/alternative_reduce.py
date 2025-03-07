@@ -95,8 +95,9 @@ for ht in lHashtags:
 
 #categories, values = zip(*items)
 
-for item in filtereddict.keys():
-    plt.plot(filtereddict[item].keys(), filtereddict[item].values(), label=item)
+for key, val in filtereddict.items():
+    dates = dict(sorted(val.items(), key=lambda item: item[0]))
+    plt.plot(dates.keys(), dates.values(), label=key)
 
 #plt.xticks(categories[::30], rotation=45)
 
