@@ -125,6 +125,7 @@ plt.legend(prop=font_prop)
 plt.xlabel("Date")
 plt.ylabel("Number of tweets")
 plt.tight_layout(pad=2.0)
+plt.subplots_adjust(top=0.95)
 
 plt.title("Tweets over time for inputted hashtags")
 
