@@ -21,3 +21,6 @@ In my third visualization, we can see the prevalance of tweets in 2020 containin
 
 In my fourth visualization, we can see the prevalance of tweets in 2020 containing #코로나바이러스 by language
 ![Prevalance of #코로나바이러스 in tweets by language](src/newmap/plotlang코로나바이러스.png)
+
+In my final visualization, we can see the prevalance of coronavirus-related tweets through the course of 2020.
+![Prevalance of coronavirus-related tweets overtime](src/newmap/tweetsovertime코로나바이러스コロナウイルス冠状病毒covid2019covid-2019covid19covid-19coronaviruscoronavirusflusickcoughsneezehospitalnursedoctor.png)
