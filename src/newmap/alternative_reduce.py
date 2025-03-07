@@ -97,9 +97,10 @@ for ht in lHashtags:
 
 first_iter_keys = True
 
+plt.clf()
 for key, val in filtereddict.items():
     dates = dict(sorted(val.items(), key=lambda item: item[0]))
-    print(dates)
+    print(key)
     plt.plot(list(dates.keys()), list(dates.values()), label=key)
 
     if first_iter_keys:
