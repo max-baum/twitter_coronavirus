@@ -95,11 +95,16 @@ for ht in lHashtags:
 
 #categories, values = zip(*items)
 
+first_iter_keys = True
+
 for key, val in filtereddict.items():
     dates = dict(sorted(val.items(), key=lambda item: item[0]))
     plt.plot(dates.keys(), dates.values(), label=key)
 
-#plt.xticks(categories[::30], rotation=45)
+    if first_iter_keys:
+        key_labels = list(dates.keys())
+        plt.xticks(key_labels[::30], rotation=45)
+        first_iter_keys = False
 
 plt.xlabel("Date")
 plt.ylabel("Number of tweets")
