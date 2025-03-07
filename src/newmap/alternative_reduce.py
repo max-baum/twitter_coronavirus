@@ -9,6 +9,8 @@ import requests
 import matplotlib.pyplot as plt
 import os
 
+from matplotlib import font_manager
+
 
 # command line args
 import argparse
@@ -20,7 +22,7 @@ args = parser.parse_args()
 startDirLang = "/home/miba2020/twitter_coronavirus/src/newmap/lang"
 
 
-font_path = "/home/miba2020/twitter_coronavirus/src/newmap/fonts/NotoSansCJK-Regular.ttc"
+font_path = "/home/miba2020/twitter_coronavirus/src/newmap/fonts/fonts/NotoSansCJK-Regular.ttc"
 font_prop = font_manager.FontProperties(fname=font_path)
 
 datecounter = 0
@@ -112,14 +114,14 @@ first_iter_keys = True
 plt.clf()
 for key, val in filtereddict.items():
     dates = dict(sorted(val.items(), key=lambda item: item[0]))
-    plt.plot(list(dates.keys()), list(dates.values()), label=key, fontproperties=font_prop)
+    plt.plot(list(dates.keys()), list(dates.values()), label=key)
 
     if first_iter_keys:
         key_labels = list(dates.keys())
         plt.xticks(key_labels[::30], rotation=45)
         first_iter_keys = False
 
-plt.legend()
+plt.legend(prop=font_prop)
 plt.xlabel("Date")
 plt.ylabel("Number of tweets")
 plt.tight_layout()
