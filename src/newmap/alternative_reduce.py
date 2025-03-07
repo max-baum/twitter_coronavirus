@@ -19,6 +19,10 @@ args = parser.parse_args()
 
 startDirLang = "/home/miba2020/twitter_coronavirus/src/newmap/lang"
 
+
+font_path = "/home/miba2020/twitter_coronavirus/src/newmap/fonts/NotoSansCJK-Regular.ttc"
+font_prop = font_manager.FontProperties(fname=font_path)
+
 datecounter = 0
 datetweets = 0
 rDictionaryDate = {}
@@ -108,7 +112,7 @@ first_iter_keys = True
 plt.clf()
 for key, val in filtereddict.items():
     dates = dict(sorted(val.items(), key=lambda item: item[0]))
-    plt.plot(list(dates.keys()), list(dates.values()), label=key)
+    plt.plot(list(dates.keys()), list(dates.values()), label=key, fontproperties=font_prop)
 
     if first_iter_keys:
         key_labels = list(dates.keys())
