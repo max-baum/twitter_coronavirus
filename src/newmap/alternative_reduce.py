@@ -101,9 +101,9 @@ plt.clf()
 for key, val in filtereddict.items():
     dates = dict(sorted(val.items(), key=lambda item: item[0]))
     print(key)
-    plt.plot(list(dates.keys()), list(dates.values()), label=key)
 
     if first_iter_keys:
+        plt.plot(list(dates.keys()), list(dates.values()), label=key)
         key_labels = list(dates.keys())
         plt.xticks(key_labels[::30], rotation=45)
         first_iter_keys = False
