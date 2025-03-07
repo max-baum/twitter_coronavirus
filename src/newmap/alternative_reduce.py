@@ -33,7 +33,7 @@ for filename in os.listdir(startDirLang):
             
             pattern = r"geoTwitter(.*?)[.]"
             date = re.search(pattern, filename).group(1)
-            l_date[date] = 0
+            l_dates[date] = 0
 
             print("Reducing: " + str(f))
             
@@ -77,7 +77,7 @@ with open(args.input_ht_path) as f:
 for ht in lHashtags:
     if ht in rDictionaryDate.keys():
         add_dict = {}
-        for key, val in l_dates.items();
+        for key, val in l_dates.items():
             if key in rDictionaryDate[ht].keys():
                 add_dict[key] = rDictionaryDate[ht][key]
             else:
