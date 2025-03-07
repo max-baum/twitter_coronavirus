@@ -124,7 +124,7 @@ for key, val in filtereddict.items():
 plt.legend(prop=font_prop)
 plt.xlabel("Date")
 plt.ylabel("Number of tweets")
-plt.tight_layout()
+plt.tight_layout(pad=2.0)
 
 plt.title("Tweets over time for inputted hashtags")
 
